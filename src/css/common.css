@@ -7,7 +7,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #5fffaf;
   color: #212121;
   line-height: 1.5;
 }
@@ -15,4 +15,34 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+.timer_new {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 5px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.value {
+  font-size: 50px;
+  font-family: '-apple-system', sans-serif;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.label {
+  font-size: 14px;
+  font-family: '-apple-system', sans-serif;
+  text-transform: uppercase;
 }

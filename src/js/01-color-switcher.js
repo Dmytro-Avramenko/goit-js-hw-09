@@ -25,7 +25,6 @@ refs.stopBtn.addEventListener('click', () => {
     refs.startBtn.disabled = false;
 });
 
-
 // перший спосіб привязка кнопки .disabled???????
 // але є лічильний скільки разів змінили колір 
 // function onStartBtnClick() {
