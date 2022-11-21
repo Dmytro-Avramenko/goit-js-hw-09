@@ -5,40 +5,58 @@ function getRandomHexColor() {
 };
 
 const refs = {
-    body: document.querySelector(`body`), 
+    body: document.querySelector('body'),
     startBtn: document.querySelector(`button[data-start]`),
-    stopBtn: document.querySelector(`button[data-stop]`),
+    stopBtn: document.querySelector(`button[data-stop]`),    
 }
 
-function onStartBtnClick() {
-    refs.body.style.backgroundColor = getRandomHexColor();         
-};
-
-refs.startBtn.addEventListener(`click`, () => {
-    timer.start();    
+let timerId = null;
+  
+refs.startBtn.addEventListener('click', () => {
+    timerId = setInterval(() => {
+        refs.body.style.backgroundColor = getRandomHexColor();
+    }, 1000);
+    refs.startBtn.disabled = true;
+    console.log("раз на секунду змінює колір фону", refs.startBtn);
 });
-refs.stopBtn.addEventListener(`click`, () => {
-    timer.stop();    
+  
+refs.stopBtn.addEventListener('click', () => {
+    clearInterval(timerId);
+    refs.startBtn.disabled = false;
 });
 
-const timer = {
-    intervalId: null,
-    isActive: false, 
-    start() {
-        if(this.isActive){
-            return
-        } 
-        const startTime = Date.now();
-        this.isActive = true;
 
-        this.intervalId = setInterval(() => {
-            const changeColorBody = onStartBtnClick();
-            console.log("раз на секунду змінює колір фону", changeColorBody);
+// перший спосіб привязка кнопки .disabled???????
+// але є лічильний скільки разів змінили колір 
+// function onStartBtnClick() {
+//     refs.body.style.backgroundColor = getRandomHexColor();         
+// };
 
-        }, 1000);
-    },
-    stop () {
-        clearInterval(this.intervalId);
-        this.isActive = false;
-    } 
-};
+// refs.startBtn.addEventListener(`click`, () => {
+//     timer.start();    
+// });
+// refs.stopBtn.addEventListener(`click`, () => {
+//     timer.stop();    
+// });
+
+// const timer = {
+//     intervalId: null,
+//     isActive: false, 
+//     start() {
+//         if(this.isActive){
+//             return
+//         } 
+//         const startTime = Date.now();
+//         this.isActive = true;
+
+//         this.intervalId = setInterval(() => {
+//             const changeColorBody = onStartBtnClick();
+//             console.log("раз на секунду змінює колір фону", changeColorBody);
+
+//         }, 1000);
+//     },
+//     stop () {
+//         clearInterval(this.intervalId);
+//         this.isActive = false;
+//     } 
+// };
