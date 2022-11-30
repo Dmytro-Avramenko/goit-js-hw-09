@@ -31,7 +31,7 @@ function onSubmit(e) {
   stepDelay = Number(step.value);
   amountInp = Number(amount.value);
 
-  for (let i = 1; i < amountInp; i += 1) {
+  for (let i = 1; i <= amountInp; i++) {
     createPromise(i, firstDelay).then(onSuccess).catch(onError);         
     firstDelay += stepDelay;
   };  
